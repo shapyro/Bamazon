@@ -42,7 +42,7 @@ function pick() {
     .prompt({
       name: "pick",
       type: "input",
-      message: "Would you like to buy?",
+      message: "What would you like to buy?",
     })
     .then(function(answer) {
       var chosenItemArray = res.filter(item => item.product_name === answer.pick);
@@ -99,6 +99,7 @@ function shop() {
             }
           );
         }
+        pick();
       })
   })
 
