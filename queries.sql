@@ -21,3 +21,9 @@ VALUES
 ('downloads', 'music', 9.99, 100),
 ('rake', 'lawn_and_garden', 19.99, 10),
 ('loppers', 'lawn_and_garden', 14.99, 5)
+
+CREATE TABLE department (
+	department_id INT auto_increment primary key,
+  department_name VARCHAR(50) NOT NULL,
+  over_head_costs DECIMAL(10, 2) NOT NULL
+)

@@ -16,18 +16,22 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
 
-  query = 'SELECT * FROM bamazon.products';
+  query = 'SELECT item_id, product_name, price FROM bamazon.products';
   connection.query(query, function(err, res){
+    var data = [];
     res.forEach(item => {
-      console.table([
-        {
-          product: item.product_name,
-          department: item.department_name,
-          price: item.price,
-          inventory: item.stock_qty
-        }
-      ]);
+      data.push(item);
+      // console.table([
+      //   {
+      //     product: item.product_name,
+      //     department: item.department_name,
+      //     price: item.price,
+      //     inventory: item.stock_qty
+      //   }
+      // ]);
     });
+    console.log('\n')
+    console.table(data)
     pick();
   })
   
@@ -49,10 +53,6 @@ function pick() {
       var chosenItem = chosenItemArray[0];
       choice = chosenItem.product_name;
       amt = chosenItem.price;
-      // console.log(chosenItemArray)
-      console.log('chosen: ' + chosenItem.product_name)
-      console.log('answer: ' + answer.pick)
-      // if (res.i)
       shop();
     });
 
@@ -95,12 +95,12 @@ function shop() {
             function(err){
               if (err) throw err;
               console.log("purchase complete")
-              console.log(`that will be $${amt} please`);
+              console.log(`That will be $${amt} please`);
             }
           );
         }
         pick();
-      })
+      });
   })
 
 }
