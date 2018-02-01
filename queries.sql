@@ -26,4 +26,9 @@ CREATE TABLE department (
 	department_id INT auto_increment primary key,
   department_name VARCHAR(50) NOT NULL,
   over_head_costs DECIMAL(10, 2) NOT NULL
-)
+);
+
+ALTER TABLE products
+ADD COLUMN product_sales DECIMAL(10, 2);
+
+

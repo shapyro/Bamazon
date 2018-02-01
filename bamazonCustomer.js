@@ -80,15 +80,19 @@ function shop() {
         } else {
           console.log('processing purchase')
           var diff = res[0].stock_qty - answer.qty;
-          var updateQuery = 'UPDATE bamazon.products SET ? WHERE ?'
+          var updateQuery = 'UPDATE bamazon.products SET ?, ? + product_sales WHERE ?'
           connection.query(updateQuery, 
             [
               {
                 stock_qty: diff
               },
               {
+                product_sales: purchaseTotal
+              },
+              {
                 product_name: choice
-              }
+              },
+
             ],
             function(err){
               if (err) throw err;

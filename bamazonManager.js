@@ -67,12 +67,16 @@ function viewProducts(){
 function lowInventory(){
   var query = 'SELECT * FROM bamazon.products WHERE stock_qty < 5';
   connection.query(query, function(err, res){
-    var data = [];
-    res.forEach(item => {
-      data.push(item);
-    });
-    console.log('\n')
-    console.table(data)
+    if(res){
+      var data = [];
+      res.forEach(item => {
+        data.push(item);
+      });
+      console.log('\n')
+      console.table(data)
+    } else {
+      console.log("All Stocked!")
+    }
     runSearch();
   })
 };
