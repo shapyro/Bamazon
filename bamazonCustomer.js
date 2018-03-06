@@ -20,14 +20,6 @@ connection.connect(function(err) {
     var data = [];
     res.forEach(item => {
       data.push(item);
-      // console.table([
-      //   {
-      //     product: item.product_name,
-      //     department: item.department_name,
-      //     price: item.price,
-      //     inventory: item.stock_qty
-      //   }
-      // ]);
     });
     console.log('\n')
     console.table(data)

@@ -1,5 +1,13 @@
-# Bamazon
+# Bamazon - a Node.js ordering system
 
-Get what you want
+`Get what you want`
 
-Pick the Product Name you would like to purchase.
+## Bamazon Customer 
+### application allows customers to make purchases
+
+![](bamazon.gif)
+
+## Bamazon Manager 
+### application allows managers to manage inventory
+
+![](bamazonManager.gif)

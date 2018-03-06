@@ -31,4 +31,20 @@ CREATE TABLE department (
 ALTER TABLE products
 ADD COLUMN product_sales DECIMAL(10, 2);
 
+INSERT INTO bamazon.department (department_name, over_head_costs)
+VALUES
+('non_perishables', 500),
+('product', 500),
+('clothing', 1000),
+('electronics', 5000),
+('instruments', 500),
+('music', 500),
+('office_supplies', 500);
 
+
+
+SELECT department_id, dept.department_name, over_head_costs, sum(product_sales)
+FROM bamazon.products prods
+INNER JOIN bamazon.department dept
+ON prods.department_name = dept.department_name
+where dept.department_id = '8'

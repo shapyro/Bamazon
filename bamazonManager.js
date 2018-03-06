@@ -116,14 +116,13 @@ function addNewProduct() {
   var checkQuery = "SELECT distinct(department_name) FROM bamazon.products"
   connection.query(checkQuery, function(err, res){
     var depts = res.map(dep => dep.department_name)
-    // console.log(res);
-    // console.log(depts)
+
     inquirer
     .prompt([
     {
       name: "newItem",
       type: "input",
-      message: "What new produt would you like to add to Inventory?"
+      message: "What new product would you like to add to Inventory?"
     },
     {
       name: "qtyAdd",
@@ -143,7 +142,6 @@ function addNewProduct() {
     }
     ])
     .then(function(answer) {
-      // console.log (`${answer.newItem} | ${answer.qtyAdd} | ${answer.dept} | ${answer.price}`)
       var insertQ = "INSERT INTO bamazon.products SET ?, ?, ?, ?"
       connection.query(insertQ,
         [
